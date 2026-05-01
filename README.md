@@ -119,8 +119,8 @@ A full-stack personal finance platform that aggregates bank accounts and investm
 ### Installation
 
 ```bash
-git clone https://github.com/your-username/trellis-money.git
-cd trellis-money
+git clone [https://github.com/your-username/trellis-money.git](https://github.com/emiliorivera747/trellis-money-aws-postregres.git)
+cd trellis-money-aws-postregres
 pnpm install
 ```
 
