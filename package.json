@@ -85,7 +85,7 @@
     "stripe": "^18.0.0",
     "tailwind-merge": "^2.6.0",
     "tailwindcss-animate": "^1.0.7",
-    "uuid": "^11.0.3",
+    "uuid": "^14.0.0",
     "withTooltip": "link:@visx/tooltip/lib/enhancers/withTooltip",
     "zod": "^3.23.8",
     "zustand": "^5.0.9",
