@@ -7,17 +7,27 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
-      - name: Deploy to EC2
-        uses: appleboy/ssh-action@master
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ubuntu
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd ~/trellis-money-aws-postgresql
-            git pull origin master
-            pnpm install
-            source ~/load-env.sh
-            NODE_OPTIONS="--max-old-space-size=1536" pnpm run build
-            source ~/load-env.sh && pm2 restart nextjs-app --update-env
+          role-to-assume: arn:aws:iam::YOUR_ACCOUNT_ID:role/trellis-github-actions-role
+          aws-region: us-west-1
+
+      - name: Deploy via SSM
+        run: |
+          aws ssm send-command \
+            --instance-ids ${{ secrets.EC2_INSTANCE_ID }} \
+            --document-name "AWS-RunShellScript" \
+            --parameters 'commands=[
+              "cd /home/ubuntu/trellis-money-aws-postgresql",
+              "git pull origin master",
+              "pnpm install",
+              "source /home/ubuntu/load-env.sh",
+              "NODE_OPTIONS=\"--max-old-space-size=1536\" pnpm run build",
+              "source /home/ubuntu/load-env.sh && pm2 restart nextjs-app --update-env"
+            ]' \
+            --region us-west-1
