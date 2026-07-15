@@ -18,10 +18,10 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen h-auto w-full border-box">
+    <div className="min-h-screen h-auto w-full border-box bg-white dark:bg-gray-900">
       <div
-        
-        className="flex flex-col justify-start items-center  mx-[10%]  mt-[10%] h-1/2  rounded-[12px] bg-white p-16 "
+
+        className="flex flex-col justify-start items-center  mx-[10%]  mt-[10%] h-1/2  rounded-[12px] bg-white dark:bg-gray-800 p-16 "
       >
         <div className="my-4 flex flex-col items-center mb-8">
           <h1 className="text-5xl font-bold mb-4 text-tertiary-800">

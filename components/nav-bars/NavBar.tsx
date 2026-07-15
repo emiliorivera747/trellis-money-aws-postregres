@@ -12,7 +12,7 @@ interface NavbarProps {
 
 const NavBar = ({ isAuthenticated }: NavbarProps) => {
   return (
-    <nav className="sticky top-0 z-50 bg-white flex items-center justify-between border-b border-gray-200 py-5 mx-10 sm:px-4 sm:py-5">
+    <nav className="sticky top-0 z-50 bg-white dark:bg-gray-900 flex items-center justify-between border-b border-gray-200 dark:border-gray-800 py-5 mx-10 sm:px-4 sm:py-5">
       <div className="flex items-center">
         <Link href="/" className="flex items-end">
           <span className="text-xl font-bold text-tertiary-1000  flex items-end">

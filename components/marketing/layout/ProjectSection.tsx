@@ -53,7 +53,7 @@ function ProjectSection({
   buttonLabel,
   url,
   subtitle,
-  bgColor = "bg-white",
+  bgColor = "bg-white dark:bg-gray-900",
   videoCover = "object-cover",
   titleClassName,
   subtitleClassName,
