@@ -1,6 +1,6 @@
 import { NextResponse, NextRequest } from "next/server";
 import { z } from "zod";
-import crypto from "crypto";
+import crypto from "node:crypto";
 import { withAuth } from "@/lib/protected";
 import {
   recordSchema,

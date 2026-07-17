@@ -3,6 +3,7 @@ import React from "react";
 
 // Types
 import type { Metadata } from "next";
+import Script from "next/script";
 
 // External Libraries
 import "react-toastify/dist/ReactToastify.css";
@@ -60,12 +61,7 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryClientProvider>
-      <html lang="en">
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-R0GTFSV0LN"
-        ></script>
-
+      <html lang="en" suppressHydrationWarning>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased ${inter.className}`}
         >
@@ -80,6 +76,10 @@ export default function RootLayout({
             <SpeedInsights />
             <Analytics />
           </ThemeProvider>
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-R0GTFSV0LN"
+            strategy="afterInteractive"
+          />
         </body>
       </html>
     </ReactQueryClientProvider>
